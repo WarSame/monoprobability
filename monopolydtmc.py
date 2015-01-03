@@ -8,7 +8,6 @@
 
 from __future__ import division #imports floating point division
 import numpy #imports array stuff
-#import math #imports math operations
 
 #Allows properties to be named by simply referencing this array
 propertynames=["Go","Mediterranean Avenue","Community Chest(2)","Baltic Avenue","Income Tax","Reading Railroad","Oriental Avenue","Chance(7)","Vermont Avenue","Connecticut Avenue","Jail","St. Charles Place","Electric Company","States Avenue","Virginia Avenue","Pennsylvania Railroad","St. James Place","Community Chest(17)","Tennessee Avenue","New York Avenue","Free Parking","Kentucky Avenue","Chance(22)","Indiana Avenue","Illinois Avenue","B. & O. Railroad","Atlantic Avenue","Ventnor Avenue","Water Works","Marvin Gardens","Go To Jail","Pacific Avenue","North Carolina Avenue","Community Chest(33)","Pennsylvania Avenue","Short Line","Chance(36)","Park Place","Luxury Tax","Boardwalk"]
@@ -35,14 +34,8 @@ def valuerank(prob,numhouses,railowned,utilityowned):
 		return -1
 
 	railrent=0
-	if (railowned==1):
-		railrent=25
-	elif (railowned==2):
-		railrent=50
-	elif (railowned==3):
-		railrent=100
-	elif (railowned==4):
-		railrent=200
+	if (railowned>0):
+		railrent=25*(2**(railowned-1))
 
 	#the expected roll(7) is used
 	utilityrent=0
